@@ -38,7 +38,30 @@ Le script `migrate.py` effectue les opérations suivantes :
 3.  **Load :** Insertion des documents propres dans MongoDB.
 
 ## 🔒 Sécurité
-*(Ici, tu peux copier la partie sur les Rôles décrite plus haut)*
+Trois profils utilisateurs ont été créés pour sécuriser la base `healthcare_db` :
+
+| Utilisateur | Rôle MongoDB | Permissions | Usage |
+| :--- | :--- | :--- | :--- |
+| **`admin`** | `dbOwner` | Lecture, Écriture, Administration | **Maintenance.** Gestion des index, des utilisateurs et du schéma. |
+| **`app_backend`** | `readWrite` | Lecture, Écriture | **Microservice ETL.** Utilisé par le script Python pour la migration automatique. |
+| **`data_analyst`** | `read` | Lecture Seule | **Reporting.** Permet d'analyser les données sans risque de modification ou de suppression accidentelle. |
+
+### Connexion et Vérification
+Pour tester la sécurité via **MongoDB Compass** :
+
+* **Accès Administrateur (Full Access) :**
+    ```text
+    mongodb://admin_boris:securePassword123@localhost:27017/healthcare_db
+    ```
+
+* **Accès Analyste (Lecture Seule) :**
+    *Ce profil permet de vérifier la sécurité : essayez de supprimer un document avec ce compte, MongoDB bloquera l'opération.*
+    ```text
+    mongodb://data_analyst:analystPassword!@localhost:27017/healthcare_db
+    ```
+
+> **Note de sécurité pour la Production :**
+> Dans cet environnement de démonstration, les mots de passe sont visibles dans le code. Pour un déploiement réel (AWS), nous utiliserions **AWS Secrets Manager** ou des variables d'environnement injectées au runtime pour ne jamais exposer les identifiants en clair.
 
 ## Structure d'un document patient (Collection : patients)
 ```JSON
