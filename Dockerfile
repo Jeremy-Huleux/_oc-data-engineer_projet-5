@@ -10,8 +10,12 @@ COPY requirements.txt .
 # On installe les librairies nécessaires
 RUN pip install --no-cache-dir -r requirements.txt
 
-# On copie tout le reste du dossier (le script migrate.py) dans le conteneur
+# Copie du code source ET des tests
 COPY . .
+
+# --- Etape Clé : On lance les tests automatiquement ---
+# Si cette commande échoue, le build Docker s'arrêtera ici.
+RUN python test_migration.py
 
 # La commande par défaut quand le conteneur se lance
 CMD ["python", "migrate.py"]

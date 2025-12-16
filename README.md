@@ -13,7 +13,7 @@ Ce projet vise à migrer des données de santé depuis des fichiers CSV vers une
 
 1.  **Cloner le dépôt :**
     ```bash
-    git clone <lien_de_votre_repo>
+    git clone https://github.com/Jeremy-Huleux/_oc-data-engineer_projet-5.git
     cd projet_data_migration
     ```
 
