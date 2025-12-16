@@ -27,7 +27,7 @@ Ce projet vise à migrer des données de santé depuis des fichiers CSV vers une
     * Base de données : `healthcare_db`
     * Collection : `patients`
 
-4.  **Vérification du Build et des Tests Unitaires (Recommandé)**
+4.  **Vérification du Build et des Tests Unitaires (Recommandé) :**
 Pour s'assurer que le code est stable avant le déploiement, nous exécutons les tests unitaires pendant la construction de l'image.
 Utilisez cette commande pour forcer la réexécution des tests et voir les logs en détail :
 
