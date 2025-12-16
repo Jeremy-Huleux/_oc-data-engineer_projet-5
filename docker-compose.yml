@@ -1,0 +1,25 @@
+services:
+  # Service 1 : La base de données
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_container
+    ports:
+      - "27017:27017"  # Permet d'accéder à la BDD en local depuis le port 27017
+    volumes:
+      - mongo_data:/data/db  # Volume pour ne pas perdre les données si on coupe le conteneur (persistance)
+
+  # Service 2 : Le script de migration
+  etl_script:
+    build: .             # Construit l'image à partir du Dockerfile courant
+    container_name: etl_container
+    depends_on:
+      - mongodb          # Attend que MongoDB soit lancé avant de démarrer
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017  # L'adresse interne dans le réseau Docker
+    volumes:
+      # On monte le fichier CSV depuis ton PC vers le conteneur (requis par la mission)
+      - ./healthcare_dataset.csv:/app/healthcare_dataset.csv
+
+# Déclaration du volume pour MongoDB
+volumes:
+  mongo_data:
