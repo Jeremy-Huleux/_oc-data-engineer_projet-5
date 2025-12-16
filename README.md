@@ -1,4 +1,4 @@
-# 🚑 Projet Migration MongoDB - DataSoluTech
+# Projet Migration MongoDB - DataSoluTech
 
 ## 📋 Contexte
 Ce projet a pour objectif de migrer des données de santé depuis des fichiers CSV vers une base de données **MongoDB** conteneurisée avec **Docker**, garantissant ainsi **scalabilité** et **portabilité** des données pour notre client.
