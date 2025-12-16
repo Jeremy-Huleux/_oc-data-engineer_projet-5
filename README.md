@@ -14,30 +14,25 @@ Ce projet vise à migrer des données de santé depuis des fichiers CSV vers une
 1.  **Cloner le dépôt :**
     ```bash
     git clone https://github.com/Jeremy-Huleux/_oc-data-engineer_projet-5.git
-    cd _oc-data-engineer_projet-5
     ```
 
 2.  **Vérification du Build et des Tests Unitaires (Recommandé) :**
-    * *Pour s'assurer que le code est stable avant le déploiement, nous exécutons les tests unitaires pendant la construction de l'image. Utilisez cette commande pour forcer la réexécution des tests et voir les logs en détail :*
-    
+    Pour valider la stabilité du code avant le déploiement, nous lançons les tests lors de la construction. Utilisez cette commande pour voir les logs en détail :
     ```bash
     docker-compose build --no-cache --progress=plain
     ```
-
-    **Pourquoi cette commande ?**
-    * `--no-cache` : Force Docker à relancer les tests même si le code n'a pas changé (évite les "faux positifs").
-    * `--progress=plain` : Affiche la sortie standard complète pour confirmer visuellement le message : `Ran 5 tests in ... OK`.
+    *L'option `--no-cache` force la réexécution des tests et `--progress=plain` permet de voir la validation : `Ran 5 tests ... OK`.*
 
 3.  **Lancer la migration via Docker :**
     ```bash
-    docker-compose up -d
+    docker-compose up --build
     ```
     *Le script Python va automatiquement nettoyer les données CSV et les insérer dans MongoDB.*
 
 4.  **Vérification finale :**
-    * **URL MongoDB :** `localhost:27017`
-    * **Base de données :** `healthcare_db`
-    * **Collection :** `patients`
+    * URL MongoDB : `localhost:27017`
+    * Base de données : `healthcare_db`
+    * Collection : `patients`
 
 ## ⚙️ Logique de Migration (ETL)
 Le script `migrate.py` effectue les opérations suivantes :
