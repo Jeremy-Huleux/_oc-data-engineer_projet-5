@@ -64,7 +64,7 @@ Trois profils utilisateurs sont créés pour sécuriser `healthcare_db` :
 
 **Accès Administrateur (Full Access) :**
 ```text
-mongodb://admin_boris:securePassword123@localhost:27017/healthcare_db
+mongodb://admin:securePassword123@localhost:27017/healthcare_db
 ```
 
 **Accès Analyste (Lecture Seule) :**
