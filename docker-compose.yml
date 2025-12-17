@@ -4,7 +4,7 @@ services:
     image: mongo:latest
     container_name: mongodb_container
     # On force MongoDB à demander un mot de passe
-   # command: ["--auth"]
+    command: ["mongod", "--auth"]
     ports:
       - "27017:27017"  # Permet d'accéder à la BDD en local depuis le port 27017
     environment:
