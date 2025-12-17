@@ -17,7 +17,7 @@ db.createUser({
 });
 print("--- ✅ Utilisateur 'app_backend' créé.");
 
-// 3. Création de l'Analyste (pour la démo)
+// 3. Création de l'Analyste
 db.createUser({
   user: "data_analyst",
   pwd: "analystPassword!",
