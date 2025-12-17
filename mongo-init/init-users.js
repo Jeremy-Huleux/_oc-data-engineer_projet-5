@@ -1,7 +1,7 @@
 // On se place sur la bonne base de données
 db = db.getSiblingDB('healthcare_db');
 
-// 1. Création de l'Admin (Admin Boris)
+// 1. Création de l'Admin (Admin)
 db.createUser({
   user: "admin",
   pwd: "securePassword123",
