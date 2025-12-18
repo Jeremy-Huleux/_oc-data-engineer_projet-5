@@ -1,7 +1,7 @@
 // On se place sur la bonne base de données
 db = db.getSiblingDB('healthcare_db');
 
-// 1. Création de l'Admin (Admin)
+// 1. Création de l'Admin 
 db.createUser({
   user: "admin",
   pwd: "securePassword123",
@@ -9,7 +9,7 @@ db.createUser({
 });
 print("--- ✅ Utilisateur 'admin' créé.");
 
-// 2. Création du Backend (pour le script Python)
+// 2. Création du Backend 
 db.createUser({
   user: "app_backend",
   pwd: "backendPassword!",
